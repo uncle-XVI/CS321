@@ -13,31 +13,73 @@
         <h1 style="text-align: right; padding-right: 90px; padding-top: 22px">Fitness Tracker</h1>
     </div>
 
-    <div style="background-color:cadetblue; width: 130px; height: 100vh; padding: 80px; position: fixed; top: 0">
+
+    <div style="background-color:cadetblue; width: 130px; height: 78vh; padding: 80px; position: fixed; top: 0">
 
         <nav>
+            <br>
+            <br>
+            <br>
             <a href="#" style="white-space: nowrap">Workout Plan</a>
-
+            <br>
+            <br>
             <a href="#">Calendar</a>
-
+            <br>
+            <br>
             <a href="#" style="white-space: nowrap">Make Schedule</a>
         </nav>
     </div>
 
     <div class="options">
-        <h2 style=" text-align: right; padding-right: 950px; padding-top: 22px">
+        <h2 style=" text-align: right; padding-right: 900px; padding-top: 22px">
             Create Workout
             Plan</h2>
 
     </div>
 
-    <div class="plan_section">
+    <div class="plan_section" style="text-align: right; padding-right: 860px; padding-top: 22px">
         <form>
+            <label for="workout">Workout Type: </label>
+            <select name="workouts" class="inputs" style="text-align:left">
+                <option value="pull">Pull</option>
+                <option value="push">Push</option>
+                <option value="upperbody">Upper Body</option>
+                <option value="lowerbody">Lower Body</option>
+                <option value="core">Core</option>
+                <option value="cardio">Cardio</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <label for="titles" style="">Exercise Name: </label>
+            <input type="text" name="exercises" class="inputs">
+            <br>
+            <br>
+            <br>
+            <label for="repsandsets">Reps/Sets: </label>
+            <input type="text" name="details" class="inputs">
+            <br>
+            <br>
+            <br>
+            <label for="week" style="padding-right:35px">Day of the week: </label>
+            <select name="days" class="inputs" style="text-align:left">
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
+            <br>
+            <br>
+            <button type="button" class="button"
+                style="background-color:cadetblue; border: none; color:white; margin: 6px 4px; padding: 11px 18px">Add
+                Exercise</button>
 
         </form>
 
     </div>
-
 
 
 
