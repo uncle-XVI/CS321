@@ -6,6 +6,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Tracker</title>
@@ -14,76 +15,80 @@
 <body>
 
     <div class="heading">
-        <h1 style="text-align: right; padding-right: 90px; padding-top: 22px">Fitness Tracker</h1>
+        <h1>Fitness Tracker<img src="3715.jpg" style="width:150px; height:100px; position: relative; top: 50px;"></h1>
+
     </div>
 
 
-    <div style="background-color:cadetblue; width: 130px; height: 78vh; padding: 80px; position: fixed; top: 0">
 
-        <nav>
-            <br>
-            <br>
-            <br>
-            <a href="#" style="white-space: nowrap">Workout Plan</a>
-            <br>
-            <br>
-            <a href="#">Calendar</a>
-            <br>
-            <br>
-            <a href="#" style="white-space: nowrap">Make Schedule</a>
-        </nav>
+    <div class="navigation">
+        <h2 class="topbar">Menu</h2>
+        <ul class="navibar">
+            <li class="liclass"><a href="#" style="white-space: nowrap">Workout Plan</a></li>
+
+            <li class="liclass"><a href="#">Calendar</a></li>
+
+            <li class="liclass"><a href="#" style="white-space: nowrap">Make Schedule</a></li>
+        </ul>
     </div>
 
+    <br>
+    <br>
+    <br>
     <div class="options">
-        <h2 style=" text-align: right; padding-right: 900px; padding-top: 22px">
+        <h2>
             Create Workout
             Plan</h2>
 
     </div>
 
-    <div class="plan_section" style="text-align: right; padding-right: 860px; padding-top: 22px">
+    <div class="plan_section">
         <form>
-            <label for="workout">Workout Type: </label>
-            <select name="workouts" class="inputs" style="text-align:left">
-                <option value="pull">Pull</option>
-                <option value="push">Push</option>
-                <option value="upperbody">Upper Body</option>
-                <option value="lowerbody">Lower Body</option>
-                <option value="core">Core</option>
-                <option value="cardio">Cardio</option>
-            </select>
-            <br>
-            <br>
-            <br>
-            <label for="titles" style="">Exercise Name: </label>
-            <input type="text" name="exercises" class="inputs">
-            <br>
-            <br>
-            <br>
-            <label for="repsandsets">Reps/Sets: </label>
-            <input type="text" name="details" class="inputs">
-            <br>
-            <br>
-            <br>
-            <label for="week" style="padding-right:35px">Day of the week: </label>
-            <select name="days" class="inputs" style="text-align:left">
-                <option value="Sunday">Sunday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-            </select>
-            <br>
-            <br>
-            <button type="button" class="button"
-                style="background-color:cadetblue; border: none; color:white; margin: 6px 4px; padding: 11px 18px">Add
-                Exercise</button>
+            <ul>
+                <li class="planning"><label for="workout">Workout Type: </label>
 
+                    <select name="workouts" class="inputs" style="text-align:left">
+                        <option value="pull">Pull</option>
+                        <option value="push">Push</option>
+                        <option value="upperbody">Upper Body</option>
+                        <option value="lowerbody">Lower Body</option>
+                        <option value="core">Core</option>
+                        <option value="cardio">Cardio</option>
+                    </select>
+                </li>
+                <li class="planning"><label for="titles">Exercise Name: </label>
+                    <input type="text" name="exercises" class="inputs">
+                </li>
+
+
+                <li class="planning"><label for="repsandsets">Reps/Sets: </label>
+                    <input type="text" name="details" class="inputs">
+                </li>
+
+                <li class="planning"><label for="week" style="padding-right:35px">Day of the week: </label>
+                    <select name="days" class="inputs" style="text-align:left">
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </li>
+
+                <li class="planning"><button type="button" class="button"
+                        style="background-color:cadetblue; border: none; color:white; margin: 6px 4px; padding: 11px 18px">Add
+                        Exercise</button></li>
+
+            </ul>
         </form>
 
     </div>
+    <!--linking the fitness.js file to index.html-->
+    <script src="fitness.js"></script>
+
+
 
 
 
