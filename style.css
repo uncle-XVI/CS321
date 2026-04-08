@@ -1,0 +1,111 @@
+
+@keyframes myAnimationNav{
+    from{ background-color: cadetblue;
+    color: #273F4F;}
+    to{ background-color: rgb(78, 132, 134);
+    color:#b9c9d4;}
+}
+
+
+body{
+    background-color: #EFEEEA;
+    color: #273F4F;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.heading{
+    text-align: right;
+    padding-right: 90px;
+    padding-top: 22px
+}
+.navigation{
+    background-color: cadetblue;
+    background:linear-gradient(180deg,cadetblue 50%, rgb(72, 118, 119) 75%, rgb(49, 80, 81)  100%);
+    width: 350px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    border-radius: 2%;
+}
+.topbar{
+        color:aliceblue;
+        padding-top: 40px;
+        padding-bottom:20px;
+        text-align: center;
+
+}
+.navibar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 350px;
+    padding-top: 10px;
+    background-color: cadetblue;
+    text-align: center;
+    
+}
+.liclass a{
+
+  display: block;
+  color: #273F4F;
+  padding: 16px 32px;
+  text-decoration: none;
+
+}
+.liclass a:hover{
+    animation:myAnimationNav;
+    animation-duration: 0.5s;
+    color:#b9c9d4;
+    background-color: rgb(78, 132, 134);
+}
+.options{
+    text-align: left;
+    padding-left: 400px;
+}
+.plan_section{
+    background-color: #ecebe6;
+    width: 700px;
+    padding: 40px;
+    height: 500px;
+    margin-left: 450px ;
+    margin-top:50px;
+    margin-bottom: 100px ;
+    border-radius: 5%;
+}   
+
+.planning{
+    padding: 20px;
+    text-decoration: none;
+    display:block;
+
+}
+.planning input{
+    padding:12px;
+    width: 200px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border-color: #ffffff;
+    border-radius: 0.5%;
+
+}
+
+.planning select{
+    padding: 12px;
+    width: 200px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border:1px solid #e8e4d8;
+    border-radius: 4%;
+}
+.planning button{
+    padding: 20px;
+    width: 200px;
+    height:60px;
+    font-size:20px;
+    font-weight: lighter;
+    margin: 20px 0;
+
+    box-sizing: border-box;
+    border:1px solid #e8e4d8;
+    border-radius: 4%;
+}
