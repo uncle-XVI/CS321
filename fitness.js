@@ -1,12 +1,36 @@
 /**
  * Fitness Tracker App – JavaScript
- * Author: Xiaoyue Yang
+ * Author: Xiaoyue Yang and Akshita Biswas (intialized Firebase and set up database connection to Firestore)
  * Date: 2026-04-06
  * Description: Hard-coded workout planner with three views (Workout Plan table,
  *              Calendar grouped by day, and Make Schedule form). No database. 
  *              The app allows adding/deleting
- *              exercises and switching views without page reload.
+ *              exercises and switching views without page reload. Initialized firebase and set up the database connection to Firestore. 
  */
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyAMBYYVzaSCn-UyzcS86XqmAB2p_aE9QhM",
+    authDomain: "fitness-tracker-c75db.firebaseapp.com",
+    projectId: "fitness-tracker-c75db",
+    storageBucket: "fitness-tracker-c75db.firebasestorage.app",
+    messagingSenderId: "1090453408971",
+    appId: "1:1090453408971:web:94498bdbfc53e567d09f4e",
+    measurementId: "G-G928R6NBJ2"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+//Initializing the Firestore database
+const db = getFirestore(app);
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Hard-coded workout plans (initial data)
