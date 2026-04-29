@@ -35,10 +35,10 @@ const db = getFirestore(app);
 document.addEventListener('DOMContentLoaded', () => {
     // Hard-coded workout plans (initial data)
     let workoutPlans = [
-        { id: Date.now() + 1, workoutType: 'pull', exerciseName: 'Pull-ups', repsSets: '3x8', dayOfWeek: 'Monday' },
-        { id: Date.now() + 2, workoutType: 'push', exerciseName: 'Bench Press', repsSets: '4x10', dayOfWeek: 'Tuesday' },
-        { id: Date.now() + 3, workoutType: 'lowerbody', exerciseName: 'Squats', repsSets: '3x12', dayOfWeek: 'Wednesday' },
-        { id: Date.now() + 4, workoutType: 'cardio', exerciseName: 'Running', repsSets: '30 min', dayOfWeek: 'Friday' }
+        // { id: Date.now() + 1, workoutType: 'pull', exerciseName: 'Pull-ups', repsSets: '3x8', dayOfWeek: 'Monday' },
+        // { id: Date.now() + 2, workoutType: 'push', exerciseName: 'Bench Press', repsSets: '4x10', dayOfWeek: 'Tuesday' },
+        // { id: Date.now() + 3, workoutType: 'lowerbody', exerciseName: 'Squats', repsSets: '3x12', dayOfWeek: 'Wednesday' },
+        // { id: Date.now() + 4, workoutType: 'cardio', exerciseName: 'Running', repsSets: '30 min', dayOfWeek: 'Friday' }
     ];
 
     function generateId() {
@@ -235,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //adding to database - Xavier
         setDoc(doc(db, "Schedule", (String)(newPlan.id)), newPlan);
+        //searches for "Schedule" collection -> adds new document 
         //end xavier's addition
 
         if (exerciseNameInput) exerciseNameInput.value = '';
