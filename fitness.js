@@ -10,7 +10,8 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+import { getFirestore, doc, getDocs, addDoc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,7 +30,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 //Initializing the Firestore database
-const db = getFirestore(app);
+const db = getFirestore(app); 
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const repsSetsInput = document.querySelector('input[name="details"]');
     const daySelect = document.querySelector('select[name="days"]');
     const addButton = document.querySelector('.button');
+    const loadButton = document.querySelector('.button');
 
     // Navigation links
     const navLinks = document.querySelectorAll('.navibar a');
@@ -170,6 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Delete a workout plan 
     function deletePlanById(id) {
+
+        //removing from database - Xavier
+        try{
+            deleteDoc(doc(db, "Schedule", (String)(id)));
+        }catch(e){
+            console.log("item doesn't exist or id not found");
+            console.log(e);
+        }
+        //end xavier's addition
         workoutPlans = workoutPlans.filter(plan => plan.id !== id);
         const view = getCurrentActiveView();
         if (view === 'workout') {
@@ -222,6 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const newPlan = { id: generateId(), workoutType, exerciseName, repsSets, dayOfWeek };
         workoutPlans.push(newPlan);
+
+        //adding to database - Xavier
+        setDoc(doc(db, "Schedule", (String)(newPlan.id)), newPlan);
+        //end xavier's addition
+
         if (exerciseNameInput) exerciseNameInput.value = '';
         if (repsSetsInput) repsSetsInput.value = '';
         // Re-render the current view if it shows data (workout or calendar)
@@ -254,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addButton) {
         addButton.addEventListener('click', addWorkoutPlan);
     }
+    
 
     // INITIALIZATION 
     setActiveView('makeschedule');
