@@ -10,7 +10,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-import { getFirestore, doc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+import { getFirestore, doc, deleteDoc, setDoc, getDocs, collection } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const repsSetsInput = document.querySelector('input[name="details"]');
     const daySelect = document.querySelector('select[name="days"]');
     const addButton = document.querySelector('.button');
-    const loadButton = document.querySelector('.button');
+    //const loadButton = document.querySelector('.button'); -- could not implement
 
     // Navigation links
     const navLinks = document.querySelectorAll('.navibar a');
@@ -169,16 +169,21 @@ document.addEventListener('DOMContentLoaded', () => {
         calendarView.appendChild(container);
     }
 
-    // Delete a workout plan 
-    function deletePlanById(id) {
-
-        //removing from database - Xavier
+    //Function deletes the document associated with a workout object from the database - Xavier
+    function removeFromDB(id){
         try{
             deleteDoc(doc(db, "Schedule", (String)(id)));
         }catch(e){
             console.log("item doesn't exist or id not found");
             console.log(e);
         }
+    }
+
+    // Delete a workout plan 
+    function deletePlanById(id) {
+
+        //removing from database - Xavier
+        removeFromDB(id);
         //end xavier's addition
         workoutPlans = workoutPlans.filter(plan => plan.id !== id);
         const view = getCurrentActiveView();
@@ -248,6 +253,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Reads data from database to construct a new workout schedule - Kira
+    // function loadSchedule(){
+    //     const docRef = getDocs(collection(db, "Schedule"));
+    //     for(let obj of docRef){
+    //         //can't get past this part
+    //     }
+    // }
+
     // Event listeners 
     if (workoutPlanLink) {
         workoutPlanLink.addEventListener('click', (e) => {
@@ -270,8 +283,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addButton) {
         addButton.addEventListener('click', addWorkoutPlan);
     }
-    
 
-    // INITIALIZATION 
+    //could not implement
+    // if (loadButton) {
+    //     loadButton.addEventListener('click', loadSchedule);
+    // }
+
+    // INITIALIZATION
     setActiveView('makeschedule');
 });
