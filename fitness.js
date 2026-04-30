@@ -29,7 +29,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 //Initializing the Firestore database
-const db = getFirestore(app); 
+const db = getFirestore(app);
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -170,10 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Function deletes the document associated with a workout object from the database - Xavier
-    function removeFromDB(id){
-        try{
+    function removeFromDB(id) {
+        try {
             deleteDoc(doc(db, "Schedule", (String)(id)));
-        }catch(e){
+        } catch (e) {
             console.log("item doesn't exist or id not found");
             console.log(e);
         }
@@ -261,6 +261,24 @@ document.addEventListener('DOMContentLoaded', () => {
     //     }
     // }
 
+
+
+    //Akshita - Gets the plan from the database and renders it in calendar page and workout plan page
+    async function retrievePlan() {
+        const getplan = await getDocs(collection(db, "Schedule"));
+        //for each value pushes it into the array workoutPlans
+        getplan.forEach((plan) => {
+            workoutPlans.push(plan.data());
+        });
+
+        if (activeView === 'workout') {
+            renderWorkoutPlan();
+        }
+        else if (activeView === 'calendar') {
+            renderCalendar();
+        }
+    }
+
     // Event listeners 
     if (workoutPlanLink) {
         workoutPlanLink.addEventListener('click', (e) => {
@@ -291,4 +309,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // INITIALIZATION
     setActiveView('makeschedule');
+    retrievePlan();
 });
